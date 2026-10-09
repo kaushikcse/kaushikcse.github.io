@@ -1,10 +1,186 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <p>This is my GitHub Pages site.</p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name – Portfolio</title>
+<meta name="description" content="Portfolio of Your Name, Your Job Title.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#16213a; --muted:#5a6479; --line:#d9dde5; --accent:#1d4ed8; --accent-ink:#ffffff;
+  --display:"Bricolage Grotesque","Segoe UI",Helvetica,Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1524; --surface:#171e31; --ink:#e8ecf5; --muted:#9aa5bd; --line:#2a3550; --accent:#7aa2ff; --accent-ink:#0f1524;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.08rem;line-height:1.7}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0}
+
+.layout{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:300px 1fr;gap:4rem}
+aside{position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:4rem 0 3rem}
+.name{font-size:2.6rem;font-weight:700;letter-spacing:-.02em}
+.role{font-family:var(--display);font-size:1.15rem;color:var(--accent);margin:.6rem 0 1rem;font-weight:500}
+.tag{color:var(--muted);max-width:26ch;margin:0}
+nav ul{list-style:none;padding:0;margin:2rem 0 0}
+nav a{display:inline-block;font-family:var(--display);font-weight:500;color:var(--muted);text-decoration:none;padding:.3rem 0;border-left:2px solid transparent;padding-left:.9rem;margin-left:-.9rem}
+nav a:hover,nav a.active{color:var(--ink);border-left-color:var(--accent)}
+.social{display:flex;gap:1.2rem;font-family:var(--display);font-weight:500;font-size:.95rem}
+.social a{color:var(--muted)}
+.social a:hover{color:var(--accent)}
+
+main{padding:4rem 0 6rem}
+section{padding-bottom:4.5rem;scroll-margin-top:2rem}
+h2{font-size:1.5rem;margin-bottom:1.6rem;letter-spacing:-.01em}
+p{margin:0 0 1.1rem;max-width:62ch}
+
+.projects{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.projects li{border-bottom:1px solid var(--line)}
+.projects a{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.4rem .5rem;color:inherit;text-decoration:none;transition:background .15s}
+.projects a:hover{background:var(--surface)}
+.projects h3{font-size:1.2rem;font-weight:700}
+.projects a:hover h3{color:var(--accent)}
+.projects p{grid-column:1;margin:0;color:var(--muted);font-size:1rem}
+.projects .stack{grid-column:2;grid-row:1;font-family:var(--display);font-size:.88rem;color:var(--muted);align-self:center}
+
+.jobs{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:2px solid var(--line)}
+.jobs li{position:relative;padding-bottom:2rem}
+.jobs li::before{content:"";position:absolute;left:calc(-1.6rem - 6px);top:.55rem;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.jobs h3{font-size:1.1rem}
+.jobs .when{font-family:var(--display);font-size:.9rem;color:var(--muted);margin:.1rem 0 .5rem}
+.jobs p{margin:0;font-size:1rem}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem 2rem}
+.skills h3{font-size:1rem;margin-bottom:.4rem}
+.skills p{margin:0;color:var(--muted);font-size:1rem}
+
+.btn{display:inline-block;font-family:var(--display);font-weight:700;background:var(--accent);color:var(--accent-ink);padding:.8rem 1.5rem;border-radius:6px;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+footer{color:var(--muted);font-size:.9rem;font-family:var(--display)}
+
+@media (max-width:820px){
+  .layout{grid-template-columns:1fr;gap:0}
+  aside{position:static;height:auto;padding:3rem 0 1rem}
+  nav{display:none}
+  .social{margin-top:1.5rem}
+  main{padding-top:2rem}
+  .projects a{grid-template-columns:1fr}
+  .projects .stack{grid-column:1;grid-row:auto}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <div>
+      <h1 class="name">Your Name</h1>
+      <p class="role">Your Job Title</p>
+      <p class="tag">One sentence on what you build and who it helps.</p>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="social">
+      <a href="https://github.com/yourusername">GitHub</a>
+      <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+      <a href="mailto:you@example.com">Email</a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Write two or three sentences about who you are, what you specialize in, and what kind of work you want to do next. Keep it specific: name your field, your strongest skills, and the outcomes you have delivered.</p>
+      <p>Add one line about what you do outside work if it helps people remember you.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        <li><a href="https://github.com/yourusername/project-one">
+          <h3>Project One</h3><span class="stack">Python, Flask</span>
+          <p>What it does and the result: for example, "Cut report generation time from 2 hours to 5 minutes."</p>
+        </a></li>
+        <li><a href="https://github.com/yourusername/project-two">
+          <h3>Project Two</h3><span class="stack">JavaScript, React</span>
+          <p>A short description of the problem you solved and the number of users or the impact.</p>
+        </a></li>
+        <li><a href="https://github.com/yourusername/project-three">
+          <h3>Project Three</h3><span class="stack">SQL, Tableau</span>
+          <p>Describe your role, the tools you used, and what changed because of your work.</p>
+        </a></li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul class="jobs">
+        <li>
+          <h3>Job Title, Company</h3>
+          <div class="when">2023 – Present</div>
+          <p>One or two lines on your responsibilities and your biggest achievement.</p>
+        </li>
+        <li>
+          <h3>Previous Title, Company</h3>
+          <div class="when">2021 – 2023</div>
+          <p>One or two lines on what you owned and what you delivered.</p>
+        </li>
+        <li>
+          <h3>Degree, University</h3>
+          <div class="when">2017 – 2021</div>
+          <p>Your field of study and any honors or relevant coursework.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h3>Languages</h3><p>Python, JavaScript, SQL</p></div>
+        <div><h3>Tools</h3><p>Git, Docker, VS Code</p></div>
+        <div><h3>Practices</h3><p>Testing, code review, documentation</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>I'm open to new roles and collaborations. Send a short note about what you have in mind and I'll reply within a few days.</p>
+      <a class="btn" href="mailto:you@example.com">Email me</a>
+    </section>
+
+    <footer>&copy; 2026 Your Name</footer>
+  </main>
+</div>
+
+<script>
+// Highlight the current section in the sidebar nav
+(function(){
+  var links=document.querySelectorAll('nav a');
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
 </html>
